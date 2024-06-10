@@ -26,7 +26,9 @@ struct MealListView: View {
             }
             .navigationBarTitle("Dessert Meals", displayMode: .inline)
             .task {
-                await viewModel.fetchMeals()
+                if !viewModel.hasLoadedMeals{
+                    await viewModel.fetchMeals()
+                }
             }
         }
     }

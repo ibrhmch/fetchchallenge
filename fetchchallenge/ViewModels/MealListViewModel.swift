@@ -6,6 +6,8 @@ class MealListViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     @Published var searchText: String = ""
     
+    var hasLoadedMeals = false
+    
     var filteredMeals: [Meal] {
         if searchText.isEmpty {
             return meals
@@ -15,6 +17,8 @@ class MealListViewModel: ObservableObject {
     }
     
     func fetchMeals() async {
+        guard !hasLoadedMeals else { return } //only fetch if meals have not been fetched yet
+        
         isLoading = true
         errorMessage = nil
         
@@ -35,6 +39,7 @@ class MealListViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.meals = mealResponse.meals
                 self.isLoading = false
+                self.hasLoadedMeals = true
             }
         } catch {
             DispatchQueue.main.async {
