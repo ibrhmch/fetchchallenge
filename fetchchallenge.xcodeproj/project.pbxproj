@@ -25,6 +25,7 @@
 		590DACA52C16D01600A9E412 /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DACA42C16D01600A9E412 /* MealDetailViewModel.swift */; };
 		590DACA72C16D2AE00A9E412 /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DACA62C16D2AE00A9E412 /* MealDetailView.swift */; };
 		590DACAA2C16DCC000A9E412 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DACA92C16DCC000A9E412 /* SplashScreenView.swift */; };
+		590DACAE2C179FF200A9E412 /* MealDetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DACAD2C179FF200A9E412 /* MealDetailCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		590DACA42C16D01600A9E412 /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
 		590DACA62C16D2AE00A9E412 /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 		590DACA92C16DCC000A9E412 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		590DACAD2C179FF200A9E412 /* MealDetailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				590DAC982C1685E900A9E412 /* MealListView.swift */,
 				590DAC9F2C16AE2C00A9E412 /* MealCardView.swift */,
 				590DACA62C16D2AE00A9E412 /* MealDetailView.swift */,
+				590DACAD2C179FF200A9E412 /* MealDetailCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			files = (
 				590DACA72C16D2AE00A9E412 /* MealDetailView.swift in Sources */,
 				590DACAA2C16DCC000A9E412 /* SplashScreenView.swift in Sources */,
+				590DACAE2C179FF200A9E412 /* MealDetailCardView.swift in Sources */,
 				590DAC632C15466F00A9E412 /* ContentView.swift in Sources */,
 				590DAC9B2C1696DC00A9E412 /* ViewModifiers.swift in Sources */,
 				590DACA02C16AE2C00A9E412 /* MealCardView.swift in Sources */,

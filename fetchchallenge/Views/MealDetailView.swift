@@ -23,35 +23,7 @@ struct MealDetailView: View {
                         .bold()
                         .padding()
                 } else if let mealDetail = viewModel.mealDetail {
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text(mealDetail.name)
-                            .font(.title)
-                            .bold()
-                            .padding(.top, 20)
-
-                        if !mealDetail.instructions.isEmpty {
-                            Text("Instructions")
-                                .font(.headline)
-                                .padding(.top, 10)
-                            Text(mealDetail.instructions)
-                        }
-
-                        if !mealDetail.ingredients.isEmpty {
-                            Divider()
-                            Text("Ingredients")
-                                .font(.headline)
-                                .padding(.vertical, 5)
-                            ForEach(Array(zip(mealDetail.ingredients, mealDetail.measurements)), id: \.0) { ingredient, measurement in
-                                HStack {
-                                    Text(ingredient)
-                                    Spacer()
-                                    Text(measurement)
-                                        .foregroundColor(.secondary)
-                                }
-                            }
-                        }
-                    }
-                    .padding()
+                    MealDetailCardView(mealDetail: mealDetail)
                 }
             }
         }
