@@ -21,6 +21,7 @@
 		590DAC9B2C1696DC00A9E412 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC9A2C1696DC00A9E412 /* ViewModifiers.swift */; };
 		590DAC9E2C1698D700A9E412 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC9D2C1698D700A9E412 /* SearchBar.swift */; };
 		590DACA02C16AE2C00A9E412 /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC9F2C16AE2C00A9E412 /* MealCardView.swift */; };
+		590DACA22C16C78400A9E412 /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DACA12C16C78400A9E412 /* MealDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		590DAC9A2C1696DC00A9E412 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		590DAC9D2C1698D700A9E412 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		590DAC9F2C16AE2C00A9E412 /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
+		590DACA12C16C78400A9E412 /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
+		590DACA32C16C8DC00A9E412 /* temp2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = temp2.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 				590DAC622C15466F00A9E412 /* ContentView.swift */,
 				590DAC662C15467000A9E412 /* Preview Content */,
 				590DAC932C165A8400A9E412 /* temp.playground */,
+				590DACA32C16C8DC00A9E412 /* temp2.playground */,
 			);
 			path = fetchchallenge;
 			sourceTree = "<group>";
@@ -194,6 +198,7 @@
 			children = (
 				590DAC912C165A5D00A9E412 /* Meal.swift */,
 				590DAC962C1684D300A9E412 /* MealResponse.swift */,
+				590DACA12C16C78400A9E412 /* MealDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -343,6 +348,7 @@
 				590DAC922C165A5D00A9E412 /* Meal.swift in Sources */,
 				590DAC972C1684D300A9E412 /* MealResponse.swift in Sources */,
 				590DAC9E2C1698D700A9E412 /* SearchBar.swift in Sources */,
+				590DACA22C16C78400A9E412 /* MealDetail.swift in Sources */,
 				590DAC612C15466F00A9E412 /* fetchchallengeApp.swift in Sources */,
 				590DAC992C1685E900A9E412 /* MealListView.swift in Sources */,
 			);
