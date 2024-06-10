@@ -4,6 +4,15 @@ class MealListViewModel: ObservableObject {
     @Published var meals: [Meal] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String? = nil
+    @Published var searchText: String = ""
+    
+    var filteredMeals: [Meal] {
+        if searchText.isEmpty {
+            return meals
+        } else {
+            return meals.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        }
+    }
     
     func fetchMeals() async {
         isLoading = true

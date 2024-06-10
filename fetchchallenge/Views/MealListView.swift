@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct MealListView: View {
-    @State private var searchText = ""
     @StateObject private var viewModel = MealListViewModel()
     
     var body: some View {
@@ -12,9 +11,9 @@ struct MealListView: View {
                 } else if let errorMessage = viewModel.errorMessage {
                     Text("Error: \(errorMessage)")
                 } else {
-                    SearchBar(text: $searchText)
+                    SearchBar(text: $viewModel.searchText)
                     
-                    List(viewModel.meals) { meal in
+                    List(viewModel.filteredMeals) { meal in
                         MealCardView(meal: meal)
                     }
                 }
