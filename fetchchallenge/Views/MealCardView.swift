@@ -11,7 +11,7 @@ struct MealCardView: View {
     let meal: Meal
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             AsyncImage(url: URL(string: meal.thumbnail)) { phase in
                 switch phase {
                 case .empty:
@@ -35,15 +35,16 @@ struct MealCardView: View {
                 .font(.headline)
                 .fontWeight(.thin)
                 .foregroundColor(.white)
-                .padding()
+                .padding(.vertical, 10)
+                .frame(maxWidth: .infinity)
                 .background(Color.black.opacity(0.7))
-                .cornerRadius(10)
-                .padding(4)
         }
         .cornerRadius(10)
         .shadow(radius: 5)
+        .padding(.horizontal)
     }
 }
+
 #Preview {
     MealCardView(meal: Meal(id: "1", name: "Sample Meal", thumbnail: "https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg"))
 }
