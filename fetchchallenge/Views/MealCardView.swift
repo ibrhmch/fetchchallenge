@@ -29,17 +29,16 @@ struct MealCardView: View {
                 }
             }
             .frame(height: 200)
-            .clipped()
-            
+            .cornerRadius(10)
+
             Text(meal.name)
                 .font(.headline)
-                .fontWeight(.thin)
+                .fontWeight(.medium)
                 .foregroundColor(.white)
-                .padding(.vertical, 10)
+                .padding(.vertical, 8)
                 .frame(maxWidth: .infinity)
-                .background(Color.black.opacity(0.7))
+                .background(LinearGradient(gradient: Gradient(colors: [.black.opacity(0.8), .clear]), startPoint: .bottom, endPoint: .top))
         }
-        .cornerRadius(10)
         .shadow(radius: 5)
         .padding(.horizontal)
     }
