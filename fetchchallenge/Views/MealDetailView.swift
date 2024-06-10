@@ -12,30 +12,47 @@ struct MealDetailView: View {
     let mealID: String
 
     var body: some View {
-        VStack {
-            if viewModel.isLoading {
-                ProgressView("Loading meal details...")
-            } else if let errorMessage = viewModel.errorMessage {
-                Text("Error: \(errorMessage)")
-            } else if let mealDetail = viewModel.mealDetail {
-                VStack(alignment: .leading, spacing: 16) {
-                    Text(mealDetail.name)
-                        .font(.largeTitle)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                if viewModel.isLoading {
+                    ProgressView("Loading Meal Details")
+                        .progressViewStyle(CircularProgressViewStyle())
+                } else if let errorMessage = viewModel.errorMessage {
+                    Text("Error: \(errorMessage)")
+                        .foregroundColor(.red)
                         .bold()
-                    Text("Instructions")
-                        .font(.headline)
-                    Text(mealDetail.instructions)
-                    Text("Ingredients")
-                        .font(.headline)
-                    ForEach(Array(zip(mealDetail.ingredients, mealDetail.measurements)), id: \.0) { ingredient, measurement in
-                        HStack {
-                            Text(ingredient)
-                            Spacer()
-                            Text(measurement)
+                        .padding()
+                } else if let mealDetail = viewModel.mealDetail {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text(mealDetail.name)
+                            .font(.title)
+                            .bold()
+                            .padding(.top, 20)
+
+                        if !mealDetail.instructions.isEmpty {
+                            Text("Instructions")
+                                .font(.headline)
+                                .padding(.top, 10)
+                            Text(mealDetail.instructions)
+                        }
+
+                        if !mealDetail.ingredients.isEmpty {
+                            Divider()
+                            Text("Ingredients")
+                                .font(.headline)
+                                .padding(.vertical, 5)
+                            ForEach(Array(zip(mealDetail.ingredients, mealDetail.measurements)), id: \.0) { ingredient, measurement in
+                                HStack {
+                                    Text(ingredient)
+                                    Spacer()
+                                    Text(measurement)
+                                        .foregroundColor(.secondary)
+                                }
+                            }
                         }
                     }
+                    .padding()
                 }
-                .padding()
             }
         }
         .navigationBarTitle("Meal Details", displayMode: .inline)

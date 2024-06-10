@@ -7,7 +7,8 @@ struct MealListView: View {
         NavigationView {
             VStack {
                 if viewModel.isLoading {
-                    ProgressView("Loading meals...")
+                    ProgressView("Loading Meals")
+                        .progressViewStyle(CircularProgressViewStyle())
                 } else if let errorMessage = viewModel.errorMessage {
                     Text("Error: \(errorMessage)")
                 } else {
