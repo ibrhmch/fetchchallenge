@@ -39,6 +39,7 @@ struct MealCardView: View {
                 .frame(maxWidth: .infinity)
                 .background(LinearGradient(gradient: Gradient(colors: [.black.opacity(0.8), .clear]), startPoint: .bottom, endPoint: .top))
         }
+        .cornerRadius(10)
         .shadow(radius: 5)
         .padding(.horizontal)
     }
