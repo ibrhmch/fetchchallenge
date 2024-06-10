@@ -20,6 +20,7 @@
 		590DAC992C1685E900A9E412 /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC982C1685E900A9E412 /* MealListView.swift */; };
 		590DAC9B2C1696DC00A9E412 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC9A2C1696DC00A9E412 /* ViewModifiers.swift */; };
 		590DAC9E2C1698D700A9E412 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC9D2C1698D700A9E412 /* SearchBar.swift */; };
+		590DACA02C16AE2C00A9E412 /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC9F2C16AE2C00A9E412 /* MealCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		590DAC982C1685E900A9E412 /* MealListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListView.swift; sourceTree = "<group>"; };
 		590DAC9A2C1696DC00A9E412 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		590DAC9D2C1698D700A9E412 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		590DAC9F2C16AE2C00A9E412 /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				590DAC9C2C1698B100A9E412 /* UtilityViews */,
 				590DAC982C1685E900A9E412 /* MealListView.swift */,
+				590DAC9F2C16AE2C00A9E412 /* MealCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			files = (
 				590DAC632C15466F00A9E412 /* ContentView.swift in Sources */,
 				590DAC9B2C1696DC00A9E412 /* ViewModifiers.swift in Sources */,
+				590DACA02C16AE2C00A9E412 /* MealCardView.swift in Sources */,
 				590DAC952C1673F600A9E412 /* MealListViewModel.swift in Sources */,
 				590DAC922C165A5D00A9E412 /* Meal.swift in Sources */,
 				590DAC972C1684D300A9E412 /* MealResponse.swift in Sources */,
