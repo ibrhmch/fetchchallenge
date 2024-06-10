@@ -24,11 +24,11 @@ struct SplashScreenView: View {
                 VStack {
                     Image(systemName: "hare.fill")
                         .font(.system(size: 80))
-                        .foregroundColor(.green)
+                        .foregroundColor(.brown)
                     Text("Fetch Challenge")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .foregroundColor(.green)
+                        .foregroundColor(.brown)
                 }
                 .scaleEffect(size)
                 .opacity(opacity)
