@@ -14,6 +14,10 @@
 		590DAC722C15467000A9E412 /* fetchchallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC712C15467000A9E412 /* fetchchallengeTests.swift */; };
 		590DAC7C2C15467000A9E412 /* fetchchallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC7B2C15467000A9E412 /* fetchchallengeUITests.swift */; };
 		590DAC7E2C15467000A9E412 /* fetchchallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC7D2C15467000A9E412 /* fetchchallengeUITestsLaunchTests.swift */; };
+		590DAC922C165A5D00A9E412 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC912C165A5D00A9E412 /* Meal.swift */; };
+		590DAC952C1673F600A9E412 /* MealListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC942C1673F600A9E412 /* MealListViewModel.swift */; };
+		590DAC972C1684D300A9E412 /* MealResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC962C1684D300A9E412 /* MealResponse.swift */; };
+		590DAC992C1685E900A9E412 /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC982C1685E900A9E412 /* MealListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,11 @@
 		590DAC772C15467000A9E412 /* fetchchallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fetchchallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		590DAC7B2C15467000A9E412 /* fetchchallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchchallengeUITests.swift; sourceTree = "<group>"; };
 		590DAC7D2C15467000A9E412 /* fetchchallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchchallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		590DAC912C165A5D00A9E412 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		590DAC932C165A8400A9E412 /* temp.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = temp.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		590DAC942C1673F600A9E412 /* MealListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListViewModel.swift; sourceTree = "<group>"; };
+		590DAC962C1684D300A9E412 /* MealResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealResponse.swift; sourceTree = "<group>"; };
+		590DAC982C1685E900A9E412 /* MealListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +112,7 @@
 				590DAC602C15466F00A9E412 /* fetchchallengeApp.swift */,
 				590DAC622C15466F00A9E412 /* ContentView.swift */,
 				590DAC662C15467000A9E412 /* Preview Content */,
+				590DAC932C165A8400A9E412 /* temp.playground */,
 			);
 			path = fetchchallenge;
 			sourceTree = "<group>";
@@ -157,6 +167,7 @@
 		590DAC8E2C1650DB00A9E412 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				590DAC982C1685E900A9E412 /* MealListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +175,7 @@
 		590DAC8F2C1650E200A9E412 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				590DAC942C1673F600A9E412 /* MealListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -171,6 +183,8 @@
 		590DAC902C1650EA00A9E412 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				590DAC912C165A5D00A9E412 /* Meal.swift */,
+				590DAC962C1684D300A9E412 /* MealResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -306,7 +320,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				590DAC632C15466F00A9E412 /* ContentView.swift in Sources */,
+				590DAC952C1673F600A9E412 /* MealListViewModel.swift in Sources */,
+				590DAC922C165A5D00A9E412 /* Meal.swift in Sources */,
+				590DAC972C1684D300A9E412 /* MealResponse.swift in Sources */,
 				590DAC612C15466F00A9E412 /* fetchchallengeApp.swift in Sources */,
+				590DAC992C1685E900A9E412 /* MealListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
