@@ -13,11 +13,14 @@ struct MealListView: View {
                 } else {
                     SearchBar(text: $viewModel.searchText)
                     
+                    Spacer()
+                    
                     List(viewModel.filteredMeals) { meal in
                         NavigationLink(destination: MealDetailView(mealID: meal.id)) {
                             MealCardView(meal: meal)
                         }
                     }
+                    .listStyle(PlainListStyle())
                 }
             }
             .navigationBarTitle("Dessert Meals", displayMode: .inline)
