@@ -16,7 +16,6 @@ struct SearchBar: View {
             HStack {
                 Image(systemName: "magnifyingglass")
                 TextField(placeholder, text: $text)
-                    .underlineTextField()
             }
             
             if !text.isEmpty {
@@ -32,6 +31,7 @@ struct SearchBar: View {
                 Spacer()
             }
         }
+        .underlineTextField()
         .padding()
         .background(Color(UIColor.systemBackground))
     }
