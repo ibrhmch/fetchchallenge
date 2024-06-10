@@ -14,7 +14,9 @@ struct MealListView: View {
                     SearchBar(text: $viewModel.searchText)
                     
                     List(viewModel.filteredMeals) { meal in
-                        MealCardView(meal: meal)
+                        NavigationLink(destination: MealDetailView(mealID: meal.id)) {
+                            MealCardView(meal: meal)
+                        }
                     }
                 }
             }
