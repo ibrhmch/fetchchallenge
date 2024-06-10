@@ -24,6 +24,7 @@
 		590DACA22C16C78400A9E412 /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DACA12C16C78400A9E412 /* MealDetail.swift */; };
 		590DACA52C16D01600A9E412 /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DACA42C16D01600A9E412 /* MealDetailViewModel.swift */; };
 		590DACA72C16D2AE00A9E412 /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DACA62C16D2AE00A9E412 /* MealDetailView.swift */; };
+		590DACAA2C16DCC000A9E412 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DACA92C16DCC000A9E412 /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		590DACA32C16C8DC00A9E412 /* temp2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = temp2.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		590DACA42C16D01600A9E412 /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
 		590DACA62C16D2AE00A9E412 /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
+		590DACA92C16DCC000A9E412 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		590DAC8E2C1650DB00A9E412 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				590DACA82C16DCB300A9E412 /* SplashScreen */,
 				590DAC9C2C1698B100A9E412 /* UtilityViews */,
 				590DAC982C1685E900A9E412 /* MealListView.swift */,
 				590DAC9F2C16AE2C00A9E412 /* MealCardView.swift */,
@@ -215,6 +218,14 @@
 				590DAC9D2C1698D700A9E412 /* SearchBar.swift */,
 			);
 			path = UtilityViews;
+			sourceTree = "<group>";
+		};
+		590DACA82C16DCB300A9E412 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				590DACA92C16DCC000A9E412 /* SplashScreenView.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				590DACA72C16D2AE00A9E412 /* MealDetailView.swift in Sources */,
+				590DACAA2C16DCC000A9E412 /* SplashScreenView.swift in Sources */,
 				590DAC632C15466F00A9E412 /* ContentView.swift in Sources */,
 				590DAC9B2C1696DC00A9E412 /* ViewModifiers.swift in Sources */,
 				590DACA02C16AE2C00A9E412 /* MealCardView.swift in Sources */,
