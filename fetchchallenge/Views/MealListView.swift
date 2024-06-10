@@ -1,10 +1,3 @@
-//
-//  MealListView.swift
-//  fetchchallenge
-//
-//  Created by octopus on 6/9/24.
-//
-
 import SwiftUI
 
 struct MealListView: View {
@@ -14,28 +7,7 @@ struct MealListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                        TextField("Search", text: $searchText)
-                    }.underlineTextField()
-                    
-                    if !searchText.isEmpty {
-                        Button("Cancel") {
-                            searchText = ""
-                        }
-                        .foregroundColor(Color.primary)
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 7)
-                        .background(.fill)
-                        .cornerRadius(7)
-                        
-                        Spacer()
-                    }
-                }
-                .padding()
-                .background(Color(UIColor.systemBackground))
-                
+                SearchBar(text: $searchText)
                 
                 if viewModel.isLoading {
                     ProgressView("Loading meals...")
@@ -81,7 +53,6 @@ struct MealListView: View {
             .task {
                 await viewModel.fetchMeals()
             }
-            
         }
     }
 }
