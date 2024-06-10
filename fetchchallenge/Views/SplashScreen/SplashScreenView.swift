@@ -15,30 +15,39 @@ struct SplashScreenView: View {
     
     var body: some View {
         if isActive {
-            ContentView()
+            withAnimation(
+                .easeIn(duration: 1.2)) {
+                    ContentView()
+                }
         } else {
             VStack {
-                Image(systemName: "hare.fill")
-                    .font(.system(size: 80))
-                    .foregroundColor(.green)
-                Text("Fetch Challenge")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.green)
-            }
-            .scaleEffect(size)
-            .opacity(opacity)
-            .onAppear {
-                withAnimation(.easeIn(duration: 1.2)) {
-                    self.size = 1.0
-                    self.opacity = 1.0
+                VStack {
+                    Image(systemName: "hare.fill")
+                        .font(.system(size: 80))
+                        .foregroundColor(.green)
+                    Text("Fetch Challenge")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.green)
+                }
+                .scaleEffect(size)
+                .opacity(opacity)
+                .onAppear{
+                    withAnimation(.easeIn(duration: 1.2)){
+                        self.size = 0.9
+                        self.opacity = 2.0
+                    }
                 }
             }
-            .onAppear {
+            .onAppear{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    self.isActive = true
+                    withAnimation(
+                        .easeIn(duration: 1.2)) {
+                                self.isActive = true
+                        }
                 }
             }
+            
         }
     }
 }
