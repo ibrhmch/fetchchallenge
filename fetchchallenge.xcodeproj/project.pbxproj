@@ -18,6 +18,7 @@
 		590DAC952C1673F600A9E412 /* MealListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC942C1673F600A9E412 /* MealListViewModel.swift */; };
 		590DAC972C1684D300A9E412 /* MealResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC962C1684D300A9E412 /* MealResponse.swift */; };
 		590DAC992C1685E900A9E412 /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC982C1685E900A9E412 /* MealListView.swift */; };
+		590DAC9B2C1696DC00A9E412 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590DAC9A2C1696DC00A9E412 /* ViewModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		590DAC942C1673F600A9E412 /* MealListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListViewModel.swift; sourceTree = "<group>"; };
 		590DAC962C1684D300A9E412 /* MealResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealResponse.swift; sourceTree = "<group>"; };
 		590DAC982C1685E900A9E412 /* MealListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListView.swift; sourceTree = "<group>"; };
+		590DAC9A2C1696DC00A9E412 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 		590DAC8B2C1650BF00A9E412 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				590DAC9A2C1696DC00A9E412 /* ViewModifiers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				590DAC632C15466F00A9E412 /* ContentView.swift in Sources */,
+				590DAC9B2C1696DC00A9E412 /* ViewModifiers.swift in Sources */,
 				590DAC952C1673F600A9E412 /* MealListViewModel.swift in Sources */,
 				590DAC922C165A5D00A9E412 /* Meal.swift in Sources */,
 				590DAC972C1684D300A9E412 /* MealResponse.swift in Sources */,
