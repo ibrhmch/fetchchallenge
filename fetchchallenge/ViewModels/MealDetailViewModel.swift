@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class MealDetailViewModel: ObservableObject {
     @Published var mealDetail: MealDetail?
     @Published var isLoading: Bool = false
