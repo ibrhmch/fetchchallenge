@@ -37,7 +37,8 @@ class MealListViewModel: ObservableObject {
             let decoder = JSONDecoder()
             let mealResponse = try decoder.decode(MealResponse.self, from: data)
             DispatchQueue.main.async {
-                self.meals = mealResponse.meals
+                // ensuring meals are sorted and stored in alphabetical order
+                self.meals = mealResponse.meals.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
                 self.isLoading = false
                 self.hasLoadedMeals = true
             }

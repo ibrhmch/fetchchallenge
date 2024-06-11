@@ -120,12 +120,12 @@
 		590DAC5F2C15466F00A9E412 /* fetchchallenge */ = {
 			isa = PBXGroup;
 			children = (
-				590DAC902C1650EA00A9E412 /* Models */,
-				590DAC8F2C1650E200A9E412 /* ViewModels */,
-				590DAC8E2C1650DB00A9E412 /* Views */,
 				590DAC8C2C1650C600A9E412 /* Services */,
 				590DAC8B2C1650BF00A9E412 /* Utilities */,
 				590DAC8A2C1648BF00A9E412 /* Resources */,
+				590DAC902C1650EA00A9E412 /* Models */,
+				590DAC8F2C1650E200A9E412 /* ViewModels */,
+				590DAC8E2C1650DB00A9E412 /* Views */,
 				590DAC602C15466F00A9E412 /* fetchchallengeApp.swift */,
 				590DAC622C15466F00A9E412 /* ContentView.swift */,
 				590DAC662C15467000A9E412 /* Preview Content */,
