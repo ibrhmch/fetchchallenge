@@ -16,6 +16,7 @@ fetchchallenge is an iOS application that allows users to browse dessert meals. 
   - `Views/`: Contains the SwiftUI views.
 - `fetchchallenge.xcodeproj/`: Xcode project files.
 - `fetchchallengeTests/`: Unit tests for the app.
+- `Docs/`: Detailed documentation for the project.
 
 ## Setup Instructions
 
