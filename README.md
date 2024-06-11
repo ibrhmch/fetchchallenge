@@ -33,5 +33,7 @@ fetchchallenge is an iOS application that allows users to browse dessert meals. 
 ## Documentation
 
 Detailed documentation for each component is available in the `Docs` folder.
-
+- [Models Documentation](./Docs/Models.md)
+- [ViewModels Documentation](./Docs/ViewModels.md)
+- [Views Documentation](./Docs/Views.md)
 
