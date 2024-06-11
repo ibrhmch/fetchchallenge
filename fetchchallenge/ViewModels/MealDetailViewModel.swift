@@ -17,8 +17,7 @@ class MealDetailViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
 
-        let urlString = "https://themealdb.com/api/json/v1/1/lookup.php?i=\(mealID)"
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: APIConfig.mealDetailURL(for: mealID)) else {
             self.errorMessage = "Invalid URL"
             self.isLoading = false
             return
