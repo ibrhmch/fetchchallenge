@@ -12,19 +12,17 @@ struct MealDetailView: View {
     let mealID: String
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                if viewModel.isLoading {
-                    ProgressView("Loading Meal Details")
-                        .progressViewStyle(CircularProgressViewStyle())
-                } else if let errorMessage = viewModel.errorMessage {
-                    Text("Error: \(errorMessage)")
-                        .foregroundColor(.red)
-                        .bold()
-                        .padding()
-                } else if let mealDetail = viewModel.mealDetail {
-                    MealDetailCardView(mealDetail: mealDetail)
-                }
+        VStack(alignment: .leading, spacing: 20) {
+            if viewModel.isLoading {
+                ProgressView("Loading Meal Details")
+                    .progressViewStyle(CircularProgressViewStyle())
+            } else if let errorMessage = viewModel.errorMessage {
+                Text("Error: \(errorMessage)")
+                    .foregroundColor(.red)
+                    .bold()
+                    .padding()
+            } else if let mealDetail = viewModel.mealDetail {
+                MealDetailCardView(mealDetail: mealDetail)
             }
         }
         .navigationBarTitle("Meal Details", displayMode: .inline)
