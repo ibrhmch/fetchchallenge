@@ -11,51 +11,64 @@ struct MealDetailCardView: View {
     let mealDetail: MealDetail
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            if let imageUrl = mealDetail.thumbnail, let url = URL(string: imageUrl) {
-                            AsyncImage(url: url) { image in
-                                image.resizable()
-                                     .aspectRatio(contentMode: .fill)
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .frame(height: 300)
-                            .cornerRadius(10)
-                            .padding(.horizontal)
-                        }
+        ScrollView{
+            VStack(alignment: .center, spacing: 20) {
+                if let imageUrl = mealDetail.thumbnail, let url = URL(string: imageUrl) {
+                    AsyncImage(url: url) { image in
+                        image.resizable()
+                             .aspectRatio(contentMode: .fill)
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(height: 300)
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                }
 
-                        Text(mealDetail.name)
-                            .font(.title)
-                            .bold()
+                Text(mealDetail.name)
+                    .font(.title)
 
-            if !mealDetail.instructions.isEmpty {
-                            Text("Instructions")
-                                .font(.headline)
-                                .padding(.top, 10)
-                            Text(mealDetail.instructions)
-                        }
+                if let youtubeURL = mealDetail.youtubeURL, let url = URL(string: youtubeURL) {
+                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
+                        Link("Watch on YouTube", destination: url)
+                            .font(.headline)
+                        
+                        Image(systemName: "play.rectangle.fill")
+                    }
+                    .padding(10)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(10)
+                    .foregroundColor(Color.white)
+                }
+                
 
-            if !mealDetail.ingredients.isEmpty,
-               !mealDetail.measurements.isEmpty {
-                            Divider()
-                            VStack(alignment: .leading) {
-                                Text("Ingredients")
-                                    .font(.headline)
-                                    .padding(.vertical, 5)
-                                ForEach(Array(zip(mealDetail.ingredients, mealDetail.measurements)), id: \.0) { ingredient, measurement in
-                                    Text("\(measurement) of \(ingredient)")
-                                }
-                            }
-                        }
-
-                        if let youtubeURL = mealDetail.youtubeURL, let url = URL(string: youtubeURL) {
-                            Link("Watch on YouTube", destination: url)
-                                .font(.headline)
-                                .foregroundColor(.blue)
-                                .padding(.top, 20)
+                VStack(alignment: .leading, spacing: 10) {
+                        Text("Instructions")
+                            .font(.headline)
+                            .padding(.top, 10)
+                        Text(mealDetail.instructions)
+                }
+                
+                Divider()
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Ingredients")
+                        .font(.headline)
+                        .padding(.vertical, 5)
+                    
+                    ForEach(Array(zip(mealDetail.ingredients, mealDetail.measurements)), id: \.0) { ingredient, measurement in
+                        HStack {
+                            Text(ingredient)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            Text(measurement)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                     }
-                    .padding()
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .padding()
+        }
     }
 }
 
