@@ -2,7 +2,8 @@ import SwiftUI
 
 struct MealListView: View {
     @StateObject private var viewModel = MealListViewModel()
-    
+    @State private var searchText = ""
+
     var body: some View {
         NavigationView {
             VStack {
@@ -12,21 +13,21 @@ struct MealListView: View {
                 } else if let errorMessage = viewModel.errorMessage {
                     Text("Error: \(errorMessage)")
                 } else {
-                    SearchBar(text: $viewModel.searchText)
-                    
-                    Spacer()
-                    
                     List(viewModel.filteredMeals) { meal in
                         NavigationLink(destination: MealDetailView(mealID: meal.id)) {
                             MealCardView(meal: meal)
                         }
                     }
                     .listStyle(PlainListStyle())
+                    .searchable(text: $searchText, prompt: "Search meals")
+                    .onChange(of: searchText) { newValue in
+                        viewModel.searchText = newValue
+                    }
                 }
             }
             .navigationBarTitle("Dessert Meals", displayMode: .inline)
             .task {
-                if !viewModel.hasLoadedMeals{
+                if !viewModel.hasLoadedMeals {
                     await viewModel.fetchMeals()
                 }
             }

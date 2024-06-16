@@ -1,22 +1,25 @@
 import Foundation
+import Combine
 
 @MainActor
 class MealListViewModel: ObservableObject {
     @Published var meals: [Meal] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String? = nil
-    @Published var searchText: String = ""
-    
-    var hasLoadedMeals = false
-    
-    var filteredMeals: [Meal] {
-        if searchText.isEmpty {
-            return meals
-        } else {
-            return meals.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+    @Published var searchText: String = "" {
+        didSet {
+            filterMeals()
         }
     }
     
+    var hasLoadedMeals = false
+    @Published var filteredMeals: [Meal] = []
+    
+    init() {
+        // Initial filter
+        filterMeals()
+    }
+
     func fetchMeals() async {
         guard !hasLoadedMeals else { return } //only fetch if meals have not been fetched yet
         
@@ -39,6 +42,7 @@ class MealListViewModel: ObservableObject {
             DispatchQueue.main.async {
                 // ensuring meals are sorted and stored in alphabetical order
                 self.meals = mealResponse.meals.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
+                self.filteredMeals = self.meals
                 self.isLoading = false
                 self.hasLoadedMeals = true
             }
@@ -47,6 +51,14 @@ class MealListViewModel: ObservableObject {
                 self.errorMessage = error.localizedDescription
                 self.isLoading = false
             }
+        }
+    }
+    
+    private func filterMeals() {
+        if searchText.isEmpty {
+            filteredMeals = meals
+        } else {
+            filteredMeals = meals.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         }
     }
 }
