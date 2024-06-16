@@ -15,39 +15,38 @@ struct SplashScreenView: View {
     
     var body: some View {
         if isActive {
-            withAnimation(
-                .easeIn(duration: 1.2)) {
-                    ContentView()
-                }
+            withAnimation(.easeIn(duration: 1.2)) {
+                ContentView()
+            }
         } else {
             VStack {
                 VStack {
-                    Image(systemName: "hare.fill")
+                    Image(systemName: "carrot.fill")
                         .font(.system(size: 80))
-                        .foregroundColor(.brown)
+                        .foregroundColor(Color.white)
                     Text("Fetch Challenge")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(.brown)
+                        .font(.system(size: 36, weight: .bold, design: .rounded))
+                        .foregroundColor(Color.white)
                 }
                 .scaleEffect(size)
                 .opacity(opacity)
-                .onAppear{
-                    withAnimation(.easeIn(duration: 1.2)){
+                .onAppear {
+                    withAnimation(.easeIn(duration: 1.2)) {
                         self.size = 0.9
-                        self.opacity = 2.0
+                        self.opacity = 1.0
                     }
                 }
             }
-            .onAppear{
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.gray]), startPoint: .top, endPoint: .bottom))
+            .edgesIgnoringSafeArea(.all)
+            .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    withAnimation(
-                        .easeIn(duration: 1.2)) {
-                                self.isActive = true
-                        }
+                    withAnimation(.easeIn(duration: 1.2)) {
+                        self.isActive = true
+                    }
                 }
             }
-            
         }
     }
 }
