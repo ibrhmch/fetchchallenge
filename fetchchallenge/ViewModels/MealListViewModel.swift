@@ -16,7 +16,6 @@ class MealListViewModel: ObservableObject {
     @Published var filteredMeals: [Meal] = []
     
     init() {
-        // Initial filter
         filterMeals()
     }
 
@@ -33,14 +32,8 @@ class MealListViewModel: ObservableObject {
         }
         
         do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                throw URLError(.badServerResponse)
-            }
-            let decoder = JSONDecoder()
-            let mealResponse = try decoder.decode(MealResponse.self, from: data)
+            let mealResponse: MealResponse = try await NetworkingService.shared.fetchData(from: url)
             DispatchQueue.main.async {
-                // ensuring meals are sorted and stored in alphabetical order
                 self.meals = mealResponse.meals.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
                 self.filteredMeals = self.meals
                 self.isLoading = false

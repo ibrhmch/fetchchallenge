@@ -24,12 +24,7 @@ class MealDetailViewModel: ObservableObject {
         }
 
         do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                throw URLError(.badServerResponse)
-            }
-            let decoder = JSONDecoder()
-            let mealResponse = try decoder.decode([String: [MealDetail]].self, from: data)
+            let mealResponse: [String: [MealDetail]] = try await NetworkingService.shared.fetchData(from: url)
             if let mealDetail = mealResponse["meals"]?.first {
                 DispatchQueue.main.async {
                     self.mealDetail = mealDetail
