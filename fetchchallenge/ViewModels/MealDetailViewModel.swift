@@ -9,6 +9,12 @@ import Foundation
 
 class MealDetailViewModel: ObservableObject {
     @Published var viewState: ViewState<MealDetail> = .loading
+    
+    private let networkingService: NetworkingServiceProtocol
+    
+    init(networkingService: NetworkingServiceProtocol = NetworkingService.shared) {
+        self.networkingService = networkingService
+    }
 
     func fetchMealDetail(mealID: String) async {
         DispatchQueue.main.async {
@@ -23,7 +29,7 @@ class MealDetailViewModel: ObservableObject {
         }
 
         do {
-            let mealResponse: [String: [MealDetail]] = try await NetworkingService.shared.fetchData(from: url)
+            let mealResponse: [String: [MealDetail]] = try await networkingService.fetchData(from: url)
             if let mealDetail = mealResponse["meals"]?.first {
                 DispatchQueue.main.async {
                     self.viewState = .success(mealDetail)

@@ -8,30 +8,59 @@
 import XCTest
 @testable import fetchchallenge
 
-class MealListViewModelTests: XCTestCase {
-    
+final class MealListViewModelTests: XCTestCase {
     var viewModel: MealListViewModel!
+    var mockService: MockNetworkingService!
     
     override func setUp() async throws {
         try await super.setUp()
-        await viewModel = MealListViewModel()
+        mockService = MockNetworkingService()
+        viewModel = MealListViewModel(networkingService: mockService)
     }
     
     override func tearDown() async throws {
         viewModel = nil
+        mockService = nil
         try await super.tearDown()
     }
     
     func testFetchMealsSuccess() async throws {
+        // Arrange
+        let mockData = """
+        {
+            "meals": [
+                { "idMeal": "1", "strMeal": "Apple Pie", "strMealThumb": "nil" },
+                { "idMeal": "2", "strMeal": "Banana Bread", "strMealThumb": "nil" }
+            ]
+        }
+        """.data(using: .utf8)!
+        
+        mockService.fetchDataHandler = { _ in
+            return mockData
+        }
+        
         // Act
         await viewModel.fetchMeals()
         
         // Assert
-//        await MainActor.run {
-//            XCTAssertFalse(viewModel.meals.isEmpty, "Meals should not be empty")
-//            XCTAssertFalse(viewModel.isLoading, "isLoading should be false")
-//            XCTAssertNil(viewModel.errorMessage, "errorMessage should be nil")
-//        }
+        XCTAssertFalse(viewModel.meals.isEmpty, "Meals should not be empty")
+        XCTAssertEqual(viewModel.meals.count, 2, "There should be 2 meals")
+        XCTAssertEqual(viewModel.meals.first?.name, "Apple Pie", "First meal should be Apple Pie")
+        XCTAssert(viewModel.viewState == .success(viewModel.meals), "View state should be success")
+    }
+    
+    func testFetchMealsFailure() async throws {
+        // Arrange
+        mockService.fetchDataHandler = { _ in
+            throw URLError(.badServerResponse)
+        }
+        
+        // Act
+        await viewModel.fetchMeals()
+        
+        // Assert
+        XCTAssertTrue(viewModel.meals.isEmpty, "Meals should be empty")
+        XCTAssert(viewModel.viewState == .failure("The operation couldn’t be completed. (NSURLErrorDomain error -1011.)"), "View state should be failure")
     }
     
     func testSearchMeals() async throws {
@@ -42,13 +71,13 @@ class MealListViewModelTests: XCTestCase {
                 Meal(id: "2", name: "Banana Bread", thumbnail: "nil"),
                 Meal(id: "3", name: "Cherry Tart", thumbnail: "nil")
             ]
-            
-            // Act
-            viewModel.searchText = "Apple"
-            
-            // Assert
-            XCTAssertEqual(viewModel.filteredMeals.count, 1)
-            XCTAssertEqual(viewModel.filteredMeals.first?.name, "Apple Pie")
         }
+        
+        // Act
+        viewModel.searchText = "Apple"
+        
+        // Assert
+        XCTAssertEqual(viewModel.filteredMeals.count, 1)
+        XCTAssertEqual(viewModel.filteredMeals.first?.name, "Apple Pie")
     }
 }

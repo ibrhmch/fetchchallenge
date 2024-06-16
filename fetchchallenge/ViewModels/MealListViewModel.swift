@@ -13,7 +13,10 @@ class MealListViewModel: ObservableObject {
     var hasLoadedMeals = false
     @Published var filteredMeals: [Meal] = []
     
-    init() {
+    private let networkingService: NetworkingServiceProtocol
+    
+    init(networkingService: NetworkingServiceProtocol = NetworkingService.shared) {
+        self.networkingService = networkingService
         filterMeals()
     }
 
@@ -32,7 +35,7 @@ class MealListViewModel: ObservableObject {
         }
         
         do {
-            let mealResponse: MealResponse = try await NetworkingService.shared.fetchData(from: url)
+            let mealResponse: MealResponse = try await networkingService.fetchData(from: url)
             DispatchQueue.main.async {
                 self.meals = mealResponse.meals.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
                 self.filteredMeals = self.meals

@@ -5,7 +5,7 @@
 //  Created by octopus on 6/9/24.
 //
 
-struct MealDetail: Codable {
+struct MealDetail: Codable, Equatable {
     let id: String
     let name: String
     let category: String

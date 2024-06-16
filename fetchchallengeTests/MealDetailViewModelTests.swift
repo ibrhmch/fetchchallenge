@@ -8,47 +8,61 @@
 import XCTest
 @testable import fetchchallenge
 
-class MealDetailViewModelTests: XCTestCase {
-    
+final class MealDetailViewModelTests: XCTestCase {
     var viewModel: MealDetailViewModel!
+    var mockService: MockNetworkingService!
     
     override func setUp() async throws {
         try await super.setUp()
-        viewModel = await MealDetailViewModel()
+        mockService = MockNetworkingService()
+        viewModel = MealDetailViewModel(networkingService: mockService)
     }
     
     override func tearDown() async throws {
         viewModel = nil
+        mockService = nil
         try await super.tearDown()
     }
     
     func testFetchMealDetailSuccess() async throws {
         // Arrange
         let mealID = "52788"
+        let mockData = """
+        {
+            "meals": [
+                {
+                    "idMeal": "52788",
+                    "strMeal": "Apple Pie",
+                    "strInstructions": "Some instructions",
+                    "strMealThumb": "nil"
+                }
+            ]
+        }
+        """.data(using: .utf8)!
+        
+        mockService.fetchDataHandler = { _ in
+            return mockData
+        }
         
         // Act
         await viewModel.fetchMealDetail(mealID: mealID)
         
         // Assert
-//        await MainActor.run {
-//            XCTAssertNotNil(viewModel.mealDetail, "MealDetail should not be nil")
-//            XCTAssertFalse(viewModel.isLoading, "isLoading should be false")
-//            XCTAssertNil(viewModel.errorMessage, "errorMessage should be nil")
-//        }
+        XCTAssertNotNil(viewModel.viewState, "ViewState should not be nil")
     }
     
     func testFetchMealDetailFailure() async throws {
         // Arrange
         let mealID = "InvalidID"
         
+        mockService.fetchDataHandler = { _ in
+            throw URLError(.badServerResponse)
+        }
+        
         // Act
         await viewModel.fetchMealDetail(mealID: mealID)
         
         // Assert
-//        await MainActor.run {
-//            XCTAssertNil(viewModel.mealDetail, "MealDetail should be nil")
-//            XCTAssertFalse(viewModel.isLoading, "isLoading should be false")
-//            XCTAssertNotNil(viewModel.errorMessage, "errorMessage should not be nil")
-//        }
+        XCTAssert(viewModel.viewState == .failure("The operation couldn’t be completed. (NSURLErrorDomain error -1011.)"), "View state should be failure")
     }
 }

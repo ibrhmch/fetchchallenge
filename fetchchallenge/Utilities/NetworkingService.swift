@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct NetworkingService {
+protocol NetworkingServiceProtocol {
+    func fetchData<T: Decodable>(from url: URL) async throws -> T
+}
+
+struct NetworkingService: NetworkingServiceProtocol {
     static let shared = NetworkingService()
     
     private init() {}

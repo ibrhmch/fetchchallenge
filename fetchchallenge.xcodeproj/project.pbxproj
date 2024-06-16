@@ -26,6 +26,7 @@
 		5974D3912C17E6D800B0EC1F /* MealDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5974D3902C17E6D800B0EC1F /* MealDetailViewModelTests.swift */; };
 		59F43EBB2C1EB236001F1044 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F43EBA2C1EB236001F1044 /* NetworkingService.swift */; };
 		59F43EBD2C1EB283001F1044 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F43EBC2C1EB283001F1044 /* ViewState.swift */; };
+		59F43EBF2C1EB752001F1044 /* MockNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F43EBE2C1EB752001F1044 /* MockNetworkingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		5974D3902C17E6D800B0EC1F /* MealDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModelTests.swift; sourceTree = "<group>"; };
 		59F43EBA2C1EB236001F1044 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		59F43EBC2C1EB283001F1044 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		59F43EBE2C1EB752001F1044 /* MockNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				5974D38A2C17E23B00B0EC1F /* APIConfig.swift */,
 				59F43EBA2C1EB236001F1044 /* NetworkingService.swift */,
 				59F43EBC2C1EB283001F1044 /* ViewState.swift */,
+				59F43EBE2C1EB752001F1044 /* MockNetworkingService.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				590DACA02C16AE2C00A9E412 /* MealCardView.swift in Sources */,
 				590DAC952C1673F600A9E412 /* MealListViewModel.swift in Sources */,
 				590DAC922C165A5D00A9E412 /* Meal.swift in Sources */,
+				59F43EBF2C1EB752001F1044 /* MockNetworkingService.swift in Sources */,
 				590DACA52C16D01600A9E412 /* MealDetailViewModel.swift in Sources */,
 				590DAC972C1684D300A9E412 /* MealResponse.swift in Sources */,
 				590DACA22C16C78400A9E412 /* MealDetail.swift in Sources */,
