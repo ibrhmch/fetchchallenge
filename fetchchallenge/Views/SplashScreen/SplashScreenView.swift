@@ -23,10 +23,10 @@ struct SplashScreenView: View {
                 VStack {
                     Image(systemName: "carrot.fill")
                         .font(.system(size: 80))
-                        .foregroundColor(Color.white)
+                        .foregroundColor(.primary)
                     Text("Fetch Challenge")
                         .font(.system(size: 36, weight: .bold, design: .rounded))
-                        .foregroundColor(Color.white)
+                        .foregroundColor(.primary)
                 }
                 .scaleEffect(size)
                 .opacity(opacity)
@@ -38,7 +38,6 @@ struct SplashScreenView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.gray]), startPoint: .top, endPoint: .bottom))
             .edgesIgnoringSafeArea(.all)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
