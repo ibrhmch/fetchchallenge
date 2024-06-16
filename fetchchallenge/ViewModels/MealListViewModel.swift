@@ -1,7 +1,6 @@
 import Foundation
 import Combine
 
-@MainActor
 class MealListViewModel: ObservableObject {
     @Published var meals: [Meal] = []
     @Published var viewState: ViewState<[Meal]> = .loading
@@ -21,10 +20,14 @@ class MealListViewModel: ObservableObject {
     func fetchMeals() async {
         guard !hasLoadedMeals else { return } //only fetch if meals have not been fetched yet
         
-        viewState = .loading
+        DispatchQueue.main.async {
+            self.viewState = .loading
+        }
         
         guard let url = URL(string: APIConfig.dessertMealsURL) else {
-            self.viewState = .failure("Invalid URL")
+            DispatchQueue.main.async {
+                self.viewState = .failure("Invalid URL")
+            }
             return
         }
         
@@ -50,7 +53,9 @@ class MealListViewModel: ObservableObject {
             filteredMeals = meals.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         }
         if hasLoadedMeals {
-            viewState = .success(filteredMeals)
+            DispatchQueue.main.async {
+                self.viewState = .success(self.filteredMeals)
+            }
         }
     }
 }

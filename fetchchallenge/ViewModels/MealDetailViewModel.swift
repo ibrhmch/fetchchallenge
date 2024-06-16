@@ -7,15 +7,18 @@
 
 import Foundation
 
-@MainActor
 class MealDetailViewModel: ObservableObject {
     @Published var viewState: ViewState<MealDetail> = .loading
 
     func fetchMealDetail(mealID: String) async {
-        viewState = .loading
+        DispatchQueue.main.async {
+            self.viewState = .loading
+        }
 
         guard let url = URL(string: APIConfig.mealDetailURL(for: mealID)) else {
-            self.viewState = .failure("Invalid URL")
+            DispatchQueue.main.async {
+                self.viewState = .failure("Invalid URL")
+            }
             return
         }
 
