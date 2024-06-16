@@ -24,8 +24,8 @@ struct SplashScreenView: View {
                     Image(systemName: "carrot.fill")
                         .font(.system(size: 80))
                         .foregroundColor(.primary)
-                    Text("Fetch Challenge")
-                        .font(.system(size: 36, weight: .bold, design: .rounded))
+                    Text("Fetch a Meal")
+                        .font(.system(size: 30, weight: .ultraLight, design: .monospaced))
                         .foregroundColor(.primary)
                 }
                 .scaleEffect(size)
