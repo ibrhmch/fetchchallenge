@@ -37,4 +37,3 @@ Displays detailed information about a meal in a card format.
 ### Properties
 
 - `mealDetail`: MealDetail - The detailed information to display.
-

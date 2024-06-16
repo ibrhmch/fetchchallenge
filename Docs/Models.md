@@ -35,4 +35,3 @@ Represents the response from TheMealDB API containing a list of meals.
 ### Properties
 
 - `meals`: [Meal] - Array of meals.
-

@@ -2,7 +2,7 @@
 
 ## Overview
 
-fetchchallenge is an iOS application that allows users to browse dessert meals. The app fetches data from TheMealDB API and displays detailed information about each meal, including ingredients and instructions.
+fetchchallenge is an iOS application that allows users to browse dessert meals. The app fetches data from TheMealDB API and displays detailed information about each meal, including ingredients and instructions. The app utilizes Kingfisher for efficient image loading and caching.
 
 ## Folder Structure
 
@@ -36,4 +36,4 @@ Detailed documentation for each component is available in the `Docs` folder.
 - [Models Documentation](./Docs/Models.md)
 - [ViewModels Documentation](./Docs/ViewModels.md)
 - [Views Documentation](./Docs/Views.md)
-
+- [Utilities Documentation](./Docs/Utilities.md)
