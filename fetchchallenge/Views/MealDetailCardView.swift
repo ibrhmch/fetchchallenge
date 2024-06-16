@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MealDetailCardView: View {
     let mealDetail: MealDetail
@@ -14,15 +15,12 @@ struct MealDetailCardView: View {
         ScrollView{
             VStack(alignment: .center, spacing: 20) {
                 if let imageUrl = mealDetail.thumbnail, let url = URL(string: imageUrl) {
-                    AsyncImage(url: url) { image in
-                        image.resizable()
-                             .aspectRatio(contentMode: .fill)
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .frame(height: 300)
-                    .cornerRadius(10)
-                    .padding(.horizontal)
+                    KFImage(url)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 300)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
                 }
 
                 Text(mealDetail.name)

@@ -6,30 +6,21 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MealCardView: View {
     let meal: Meal
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            AsyncImage(url: URL(string: meal.thumbnail)) { phase in
-                switch phase {
-                case .empty:
-                    Color.gray.opacity(0.3)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 200)
-                        .clipped()
-                case .failure:
-                    Color.red.opacity(0.3)
-                @unknown default:
-                    Color.gray.opacity(0.3)
-                }
-            }
-            .frame(height: 200)
-            .cornerRadius(10)
+            KFImage(URL(string: meal.thumbnail))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(height: 200)
+                .clipped()
+                .cornerRadius(10)
+                .shadow(radius: 5)
+                .padding(.horizontal)
 
             Text(meal.name)
                 .font(.headline)
