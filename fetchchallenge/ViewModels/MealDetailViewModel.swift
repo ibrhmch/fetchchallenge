@@ -9,17 +9,13 @@ import Foundation
 
 @MainActor
 class MealDetailViewModel: ObservableObject {
-    @Published var mealDetail: MealDetail?
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: String?
+    @Published var viewState: ViewState<MealDetail> = .loading
 
     func fetchMealDetail(mealID: String) async {
-        isLoading = true
-        errorMessage = nil
+        viewState = .loading
 
         guard let url = URL(string: APIConfig.mealDetailURL(for: mealID)) else {
-            self.errorMessage = "Invalid URL"
-            self.isLoading = false
+            self.viewState = .failure("Invalid URL")
             return
         }
 
@@ -27,16 +23,14 @@ class MealDetailViewModel: ObservableObject {
             let mealResponse: [String: [MealDetail]] = try await NetworkingService.shared.fetchData(from: url)
             if let mealDetail = mealResponse["meals"]?.first {
                 DispatchQueue.main.async {
-                    self.mealDetail = mealDetail
-                    self.isLoading = false
+                    self.viewState = .success(mealDetail)
                 }
             } else {
                 throw NSError(domain: "No meals found", code: -1, userInfo: nil)
             }
         } catch {
             DispatchQueue.main.async {
-                self.errorMessage = error.localizedDescription
-                self.isLoading = false
+                self.viewState = .failure(error.localizedDescription)
             }
         }
     }

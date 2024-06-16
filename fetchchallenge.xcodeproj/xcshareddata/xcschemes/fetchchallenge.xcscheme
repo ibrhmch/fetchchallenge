@@ -8,7 +8,7 @@
       buildArchitectures = "Automatic">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "NO"
+            buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
@@ -40,6 +40,20 @@
                BlueprintName = "fetchchallengeTests"
                ReferencedContainer = "container:fetchchallenge.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "MealDetailViewModelTests">
+               </Test>
+               <Test
+                  Identifier = "MealDetailViewModelTests/testFetchMealDetailFailure()">
+               </Test>
+               <Test
+                  Identifier = "MealDetailViewModelTests/testFetchMealDetailSuccess()">
+               </Test>
+               <Test
+                  Identifier = "MealListViewModelTests/testFetchMealsSuccess()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

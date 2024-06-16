@@ -13,15 +13,16 @@ struct MealDetailView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            if viewModel.isLoading {
+            switch viewModel.viewState {
+            case .loading:
                 ProgressView("Loading Meal Details")
                     .progressViewStyle(CircularProgressViewStyle())
-            } else if let errorMessage = viewModel.errorMessage {
+            case .failure(let errorMessage):
                 Text("Error: \(errorMessage)")
                     .foregroundColor(.red)
                     .bold()
                     .padding()
-            } else if let mealDetail = viewModel.mealDetail {
+            case .success(let mealDetail):
                 MealDetailCardView(mealDetail: mealDetail)
             }
         }

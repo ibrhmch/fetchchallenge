@@ -26,6 +26,7 @@
 		5974D38F2C17E43200B0EC1F /* MealListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5974D38E2C17E43200B0EC1F /* MealListViewModelTests.swift */; };
 		5974D3912C17E6D800B0EC1F /* MealDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5974D3902C17E6D800B0EC1F /* MealDetailViewModelTests.swift */; };
 		59F43EBB2C1EB236001F1044 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F43EBA2C1EB236001F1044 /* NetworkingService.swift */; };
+		59F43EBD2C1EB283001F1044 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F43EBC2C1EB283001F1044 /* ViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		5974D38E2C17E43200B0EC1F /* MealListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListViewModelTests.swift; sourceTree = "<group>"; };
 		5974D3902C17E6D800B0EC1F /* MealDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModelTests.swift; sourceTree = "<group>"; };
 		59F43EBA2C1EB236001F1044 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		59F43EBC2C1EB283001F1044 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				590DAC9A2C1696DC00A9E412 /* ViewModifiers.swift */,
 				5974D38A2C17E23B00B0EC1F /* APIConfig.swift */,
 				59F43EBA2C1EB236001F1044 /* NetworkingService.swift */,
+				59F43EBC2C1EB283001F1044 /* ViewState.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				590DACAE2C179FF200A9E412 /* MealDetailCardView.swift in Sources */,
 				590DAC632C15466F00A9E412 /* ContentView.swift in Sources */,
 				590DAC9B2C1696DC00A9E412 /* ViewModifiers.swift in Sources */,
+				59F43EBD2C1EB283001F1044 /* ViewState.swift in Sources */,
 				590DACA02C16AE2C00A9E412 /* MealCardView.swift in Sources */,
 				590DAC952C1673F600A9E412 /* MealListViewModel.swift in Sources */,
 				590DAC922C165A5D00A9E412 /* Meal.swift in Sources */,

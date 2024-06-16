@@ -7,12 +7,13 @@ struct MealListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.isLoading {
+                switch viewModel.viewState {
+                case .loading:
                     ProgressView("Loading Meals")
                         .progressViewStyle(CircularProgressViewStyle())
-                } else if let errorMessage = viewModel.errorMessage {
+                case .failure(let errorMessage):
                     Text("Error: \(errorMessage)")
-                } else {
+                case .success:
                     List(viewModel.filteredMeals) { meal in
                         NavigationLink(destination: MealDetailView(mealID: meal.id)) {
                             MealCardView(meal: meal)

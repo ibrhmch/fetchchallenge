@@ -4,8 +4,7 @@ import Combine
 @MainActor
 class MealListViewModel: ObservableObject {
     @Published var meals: [Meal] = []
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: String? = nil
+    @Published var viewState: ViewState<[Meal]> = .loading
     @Published var searchText: String = "" {
         didSet {
             filterMeals()
@@ -22,12 +21,10 @@ class MealListViewModel: ObservableObject {
     func fetchMeals() async {
         guard !hasLoadedMeals else { return } //only fetch if meals have not been fetched yet
         
-        isLoading = true
-        errorMessage = nil
+        viewState = .loading
         
         guard let url = URL(string: APIConfig.dessertMealsURL) else {
-            self.errorMessage = "Invalid URL"
-            self.isLoading = false
+            self.viewState = .failure("Invalid URL")
             return
         }
         
@@ -36,13 +33,12 @@ class MealListViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.meals = mealResponse.meals.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
                 self.filteredMeals = self.meals
-                self.isLoading = false
+                self.viewState = .success(self.filteredMeals)
                 self.hasLoadedMeals = true
             }
         } catch {
             DispatchQueue.main.async {
-                self.errorMessage = error.localizedDescription
-                self.isLoading = false
+                self.viewState = .failure(error.localizedDescription)
             }
         }
     }
@@ -52,6 +48,9 @@ class MealListViewModel: ObservableObject {
             filteredMeals = meals
         } else {
             filteredMeals = meals.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        }
+        if hasLoadedMeals {
+            viewState = .success(filteredMeals)
         }
     }
 }
